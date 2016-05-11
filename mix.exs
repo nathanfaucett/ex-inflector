@@ -41,7 +41,7 @@ defmodule Inflector.Mixfile do
   defp package do
     [# These are the default files included in the package
       name: :inflector,
-      files: ["lib", "priv", "mix.exs", "README*", "readme*", "LICENSE*", "license*"],
+      files: ["lib", "mix.exs", "README*", "LICENSE*"],
       maintainers: ["Nathan Faucett"],
       licenses: ["MIT"],
       links: %{
