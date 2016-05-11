@@ -3,7 +3,7 @@ defmodule Inflector.Mixfile do
 
   def project do
     [app: :inflector,
-     version: "0.0.1",
+     version: "0.0.11",
      description: description,
      package: package,
      elixir: "~> 1.2",
@@ -45,8 +45,8 @@ defmodule Inflector.Mixfile do
       maintainers: ["Nathan Faucett"],
       licenses: ["MIT"],
       links: %{
-        "GitHub" => "https://github.com/nathanfaucett/inflector",
-        "Docs" => "https://github.com/nathanfaucett/inflector"
+        "GitHub" => "https://github.com/nathanfaucett/ex-inflector",
+        "Docs" => "https://github.com/nathanfaucett/ex-inflector"
       }
     ]
   end
