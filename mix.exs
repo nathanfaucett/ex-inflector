@@ -4,6 +4,8 @@ defmodule Inflector.Mixfile do
   def project do
     [app: :inflector,
      version: "0.0.1",
+     description: description,
+     package: package,
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -28,5 +30,24 @@ defmodule Inflector.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     []
+  end
+
+  defp description do
+   """
+   simple rule based inflector
+   """
+ end
+
+  defp package do
+    [# These are the default files included in the package
+      name: :inflector,
+      files: ["lib", "priv", "mix.exs", "README*", "readme*", "LICENSE*", "license*"],
+      maintainers: ["Nathan Faucett"],
+      licenses: ["MIT"],
+      links: %{
+        "GitHub" => "https://github.com/nathanfaucett/inflector",
+        "Docs" => "https://github.com/nathanfaucett/inflector"
+      }
+    ]
   end
 end
