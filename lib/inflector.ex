@@ -27,8 +27,8 @@ defmodule Inflector do
         plural = String.downcase(plural)
 
         inflector
-            |> plural(Regex.compile!(List.to_string(["\\b", singular, "\\b"]), "i"), plural)
-            |> singular(Regex.compile!(List.to_string(["\\b", plural, "\\b"]), "i"), singular)
+            |> plural(Regex.compile!("\\b" <> singular <> "\\b", "i"), plural)
+            |> singular(Regex.compile!("\\b" <> plural <> "\\b", "i"), singular)
     end
 
     def pluralize(inflector, word) do
@@ -53,12 +53,12 @@ defmodule Inflector do
         if Enum.find_index(uncountables, fn(value) -> value == downcase_word end) != nil do
             word
         else
-            recur_replace(word, rules, length(rules))
+            recursive_replace(word, rules, length(rules))
         end
     end
 
-    defp recur_replace(word, rules, 0), do: word
-    defp recur_replace(word, rules, index) do
+    defp recursive_replace(word, _, 0), do: word
+    defp recursive_replace(word, rules, index) do
         i = index - 1
         pattern = Enum.at(rules, i)
         rule = Enum.at(pattern, 0)
@@ -66,7 +66,7 @@ defmodule Inflector do
         if Regex.match?(rule, word) do
             Regex.replace(rule, word, Enum.at(pattern, 1))
         else
-            recur_replace(word, rules, i)
+            recursive_replace(word, rules, i)
         end
     end
 end
